@@ -3,30 +3,35 @@ import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   final String title;
-  const MyButton({super.key, required this.title});
+  final double width;
+  final double height;
+  final Color color;
+  final Color colorText;
+  final VoidCallback onPress;
+  const MyButton(
+      {super.key, required this.title, this.colorText = blackColorC, required this.onPress , this.color = Colors.transparent, this.width = 60, this.height = 60});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        child: InkWell(
-          onTap: () {},
-          onLongPress: () {}, // Handle long press
-          highlightColor: Colors.green,
-          splashColor: Colors.green,
-          child: Container(
-            height: 80,
-            width: 80,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.transparent,
-            ),
-            child: Center(
-              child: Text(
-                title,
-                style: TextStyle(fontSize: 30, color: blackColorC),
-              ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: InkWell(
+        onTap: onPress,
+        onLongPress: () {}, // Handle long press
+        highlightColor: Colors.green,
+        splashColor: Colors.green,
+        child: Container(
+          height: height,
+          width: width,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            shape: BoxShape.rectangle,
+            color: color,
+          ),
+          child: Center(
+            child: Text(
+              title,
+              style: TextStyle(fontSize: 30, color: colorText),
             ),
           ),
         ),
