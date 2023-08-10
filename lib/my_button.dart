@@ -9,29 +9,37 @@ class MyButton extends StatelessWidget {
   final Color colorText;
   final VoidCallback onPress;
   const MyButton(
-      {super.key, required this.title, this.colorText = blackColorC, required this.onPress , this.color = Colors.transparent, this.width = 60, this.height = 60});
+      {super.key,
+      required this.title,
+      this.colorText = blackColorC,
+      required this.onPress,
+      this.color = Colors.transparent,
+      this.width = 60,
+      this.height = 60});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: InkWell(
-        onTap: onPress,
-        onLongPress: () {}, // Handle long press
-        highlightColor: Colors.green,
-        splashColor: Colors.green,
-        child: Container(
-          height: height,
-          width: width,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            shape: BoxShape.rectangle,
-            color: color,
-          ),
-          child: Center(
-            child: Text(
-              title,
-              style: TextStyle(fontSize: 30, color: colorText),
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        child: InkWell(
+          onTap: onPress,
+          onLongPress: () {}, // Handle long press
+          highlightColor: Colors.green,
+          splashColor: Colors.green,
+          child: Container(
+            height: height,
+            width: width,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              shape: BoxShape.rectangle,
+              color: color,
+            ),
+            child: Center(
+              child: Text(
+                title,
+                style: TextStyle(fontSize: 32, color: colorText),
+              ),
             ),
           ),
         ),
