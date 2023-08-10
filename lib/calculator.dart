@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:calculator_app_flutter_learning_6/constant.dart';
 import 'package:calculator_app_flutter_learning_6/my_button.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
@@ -15,7 +14,7 @@ class Calculator extends StatefulWidget {
 class _CalculatorState extends State<Calculator> {
   var userInput = '';
   var result = '';
-  bool isDarkModeEnabled = true;
+  bool isDarkModeEnabled = false;
   TextEditingController _textEditingController = TextEditingController();
 
   @override
@@ -23,17 +22,22 @@ class _CalculatorState extends State<Calculator> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: isDarkModeEnabled? blackDarkMode : whiteColorC,
+        titleTextStyle:
+            TextStyle(textBaseline: TextBaseline.alphabetic, fontSize: 26),
+        backgroundColor: isDarkModeEnabled ? blackDarkMode : whiteColorC,
         title: Text(
           'Calculator',
-          style: TextStyle(color: isDarkModeEnabled ? offWhite:blackColorC, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: isDarkModeEnabled ? offWhite : blackColorC,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         actions: [
           Align(
             alignment: Alignment.center,
             child: Container(
-              height: 60,
-              width: 80,
+              height: 50,
+              width: 75,
               child: DayNightSwitcher(
                 dayBackgroundColor: Colors.blue,
                 isDarkModeEnabled: isDarkModeEnabled,
@@ -45,7 +49,7 @@ class _CalculatorState extends State<Calculator> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
         ],
@@ -57,18 +61,20 @@ class _CalculatorState extends State<Calculator> {
               flex: 2,
               child: Container(
                 alignment: Alignment.bottomRight,
-                color: isDarkModeEnabled ? blackDarkMode: whiteDarkShareColorC,
+                color: isDarkModeEnabled ? blackDarkMode : whiteDarkShareColorC,
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
                   child: SingleChildScrollView(
                     child: TextField(
                       controller: _textEditingController,
-                      style: TextStyle(fontSize: 50,color: isDarkModeEnabled ? offWhite: Colors.black),
+                      style: TextStyle(
+                          fontSize: 50,
+                          color: isDarkModeEnabled ? offWhite : Colors.black),
                       readOnly: true,
                       textAlign: TextAlign.right,
                       autofocus: true,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: InputBorder.none,
                       ),
                     ),
@@ -85,7 +91,8 @@ class _CalculatorState extends State<Calculator> {
             Expanded(
               flex: 3,
               child: Container(
-                color: isDarkModeEnabled ? black2ndVersionDarkMode: whiteColorC,
+                color:
+                    isDarkModeEnabled ? black2ndVersionDarkMode : whiteColorC,
                 child: Row(
                   children: [
                     Expanded(
@@ -106,7 +113,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '7';
                               _textEditingController.text = userInput;
                             },
-                            colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                           MyButton(
                             title: '4',
@@ -114,7 +122,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '4';
                               _textEditingController.text = userInput;
                             },
-                              colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                           MyButton(
                             title: '1',
@@ -122,7 +131,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '1';
                               _textEditingController.text = userInput;
                             },
-                            colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                           MyButton(
                             title: '%',
@@ -152,7 +162,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '8';
                               _textEditingController.text = userInput;
                             },
-                            colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                           MyButton(
                             title: '5',
@@ -160,7 +171,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '5';
                               _textEditingController.text = userInput;
                             },
-                            colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                           MyButton(
                             title: '2',
@@ -168,7 +180,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '2';
                               _textEditingController.text = userInput;
                             },
-                            colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                           MyButton(
                             title: '0',
@@ -176,7 +189,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '0';
                               _textEditingController.text = userInput;
                             },
-                            colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                         ],
                       ),
@@ -198,7 +212,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '9';
                               _textEditingController.text = userInput;
                             },
-                            colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                           MyButton(
                             title: '6',
@@ -206,7 +221,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '6';
                               _textEditingController.text = userInput;
                             },
-                            colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                           MyButton(
                             title: '3',
@@ -214,7 +230,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '3';
                               _textEditingController.text = userInput;
                             },
-                            colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                           MyButton(
                             title: '.',
@@ -222,7 +239,8 @@ class _CalculatorState extends State<Calculator> {
                               userInput += '.';
                               _textEditingController.text = userInput;
                             },
-                            colorText: isDarkModeEnabled ? offWhite: blackColorC,
+                            colorText:
+                                isDarkModeEnabled ? offWhite : blackColorC,
                           ),
                         ],
                       ),
@@ -255,18 +273,22 @@ class _CalculatorState extends State<Calculator> {
                             },
                             colorText: blueOperatorsColorC,
                           ),
-                          Expanded(flex: 2,child: Column(children: [
-                            MyButton(
-                                title: '=',
-                                onPress: () {
-                                  equalPressed();
-                                  _textEditingController.text = result;
-                                  userInput = _textEditingController.text;
-                                },
-                                color: blueOperatorsColorC,
-                                colorText: whiteColorC,
-                                width: 140),
-                          ],))
+                          Expanded(
+                              flex: 2,
+                              child: Column(
+                                children: [
+                                  MyButton(
+                                      title: '=',
+                                      onPress: () {
+                                        equalPressed();
+                                        _textEditingController.text = result;
+                                        userInput = _textEditingController.text;
+                                      },
+                                      color: blueOperatorsColorC,
+                                      colorText: whiteColorC,
+                                      width: 140),
+                                ],
+                              ))
                         ],
                       ),
                     ),
