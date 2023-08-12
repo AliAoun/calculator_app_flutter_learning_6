@@ -23,7 +23,7 @@ class _CalculatorState extends State<Calculator> {
       appBar: AppBar(
         centerTitle: true,
         titleTextStyle:
-            TextStyle(textBaseline: TextBaseline.alphabetic, fontSize: 26),
+            const TextStyle(textBaseline: TextBaseline.alphabetic, fontSize: 26),
         backgroundColor: isDarkModeEnabled ? blackDarkMode : whiteColorC,
         title: Text(
           'Calculator',
@@ -82,12 +82,6 @@ class _CalculatorState extends State<Calculator> {
                 ),
               ),
             ),
-            // Divider(
-            //   thickness: 1,
-            //   height: 1,
-            //   indent: 10,
-            //   endIndent: 10,
-            // ),
             Expanded(
               flex: 3,
               child: Container(
